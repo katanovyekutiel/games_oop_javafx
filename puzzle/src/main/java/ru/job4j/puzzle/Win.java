@@ -2,20 +2,22 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean checkHorizontal(int[][] board, int row) {
-        boolean rsl = false;
+        boolean rsl = true;
         for (int i = 0; i < board.length; i++) {
-            if (board[row][i] == 1) {
-                rsl = true;
+            if (board[row][i] != 1) {
+                rsl = false;
+                break;
             }
         }
         return rsl;
     }
 
     public static boolean checkVertical(int[][] board, int column) {
-        boolean rsl = false;
+        boolean rsl = true;
         for (int i = 0; i < board.length; i++) {
-            if (board[i][column] == 1) {
-                rsl = true;
+            if (board[i][column] != 1) {
+                rsl = false;
+                break;
             }
         }
         return rsl;
