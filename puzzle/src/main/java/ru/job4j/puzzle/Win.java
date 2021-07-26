@@ -37,6 +37,7 @@ public class Win {
             if (board[i][i] == 1 && (checkHorizontal(board, i)
                     || checkVertical(board, i))) {
                 rsl = true;
+                break;
             }
         }
         return rsl;
