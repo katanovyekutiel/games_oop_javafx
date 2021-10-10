@@ -24,22 +24,30 @@ public class BishopBlack implements Figure {
         int y2 = dest.getY();
         if (Math.abs(x2 - x1) != Math.abs(y2 - y1) || (x2 > 7) ||(y2 > 7) || (x2 < 0) || (y2 < 0)) {
             throw new ImpossibleMoveException
-                    (String.format("Could not way by diagonal from %s to %s", position, dest);
+                    (String.format("Could not way by diagonal from %s to %s", position, dest));
         } else {
             int moveLenght = Math.abs(x2 - x1);
             Cell[] waySteps = new Cell[moveLenght];
-            int horizontal = Integer.compare(x2, x1);
-            int vertical = Integer.compare(y2, y1);
+            int deltaX = x2 - x1 > 0 ? 1 : -1;
+            int deltaY = y2 -y1 > 0 ? 1 : -1;
             for (int i = 0; i != moveLenght; i++) {
-                x2 += horizontal;
-                y2 += vertical;
-                waySteps[i] = new Cell(x2, y2);
+                x2 += deltaX;
+                y2 += deltaY;
+                waySteps[i] = Cell.findBy(x1, y1);
             }
+            return waySteps;
         }
-        return ;
     }
 
     public boolean isDiagonal(Cell source, Cell dest) {
+        int x1 = position.getX();
+        int y1 = position.getY();
+        int x2 = dest.getX();
+        int y2 = dest.getY();
+        if (Math.abs(x2 - x1) != Math.abs(y2 - y1) || (x2 > 7) ||(y2 > 7) || (x2 < 0) || (y2 < 0)) {
+            throw new ImpossibleMoveException
+                    (String.format("Could not way by diagonal from %s to %s", position, dest));
+        }
         return false;
     }
 
