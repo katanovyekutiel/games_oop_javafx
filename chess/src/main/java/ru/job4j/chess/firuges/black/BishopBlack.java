@@ -30,7 +30,7 @@ public class BishopBlack implements Figure {
         int moveLenght = Math.abs(x2 - x1);
         Cell[] waySteps = new Cell[moveLenght];
         int deltaX = x2 - x1 > 0 ? 1 : -1;
-        int deltaY = y2 -y1 > 0 ? 1 : -1;
+        int deltaY = y2 - y1 > 0 ? 1 : -1;
         for (int i = 0; i != moveLenght; i++) {
             x1 += deltaX;
             y1 += deltaY;
@@ -40,14 +40,6 @@ public class BishopBlack implements Figure {
     }
 
     public boolean isDiagonal(Cell source, Cell dest) {
-        int x1 = position.getX();
-        int y1 = position.getY();
-        int x2 = dest.getX();
-        int y2 = dest.getY();
-        if (Math.abs(x2 - x1) != Math.abs(y2 - y1) || (x2 > 7) ||(y2 > 7) || (x2 < 0) || (y2 < 0)) {
-            throw new ImpossibleMoveException
-                    (String.format("Could not way by diagonal from %s to %s", position, dest));
-        }
         return Math.abs(dest.getX() - source.getX()) == Math.abs(dest.getY() - source.getY());
     }
 
