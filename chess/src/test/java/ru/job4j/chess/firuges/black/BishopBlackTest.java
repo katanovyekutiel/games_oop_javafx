@@ -19,5 +19,4 @@ public class BishopBlackTest extends TestCase {
     public void testWay() {
         new BishopBlack(Cell.C1);
     }
-
 }
