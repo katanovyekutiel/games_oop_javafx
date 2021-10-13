@@ -7,16 +7,18 @@ import ru.job4j.chess.firuges.Figure;
 public class BishopBlackTest extends TestCase {
 
     public void testPosition() {
-        new BishopBlack(Cell.C8);
-
+        BishopBlack bishop = new BishopBlack(Cell.A2);
+        assertThat(bishop.position(), is(Cell.A2));
     }
 
     public void testCopy() {
-        new BishopBlack(Cell.C8);
-
+        BishopBlack bishop = new BishopBlack(Cell.A2);
+        assertThat(bishop.copy(Cell.B3).position(), is(Cell.B3));
     }
 
-    public void testWay() {
-        new BishopBlack(Cell.C1);
+    public void testWay() throws ImpossibleMoveException {
+        Cell[] expected = {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
+        BishopBlack bishop = new BishopBlack(Cell.D1);
+        assertEquals(expected, bishop.way(Cell.G5));
     }
 }
