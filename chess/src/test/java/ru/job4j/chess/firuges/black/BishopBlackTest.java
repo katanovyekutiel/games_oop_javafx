@@ -1,8 +1,12 @@
 package ru.job4j.chess.firuges.black;
 
 import junit.framework.TestCase;
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class BishopBlackTest extends TestCase {
 
